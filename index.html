@@ -12,49 +12,48 @@
       integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
       crossorigin=""
     />
-    <script
-      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-      crossorigin=""
-    ></script>
   </head>
   <body>
     <div class="container">
       <div id="map"></div>
     </div>
-
   </body>
+  <script
+    src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""
+  ></script>
 </html>
 
-    <script>
-    //   var map = L.map("map");
-    //   map.setView([51.505, -0.09], 13);
+<script>
+    var map = L.map("map");
+    map.setView([51.505, -0.09], 13);
 
-    //   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    //     maxZoom: 500,
-    //     attribution:
-    //       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-    //   }).addTo(map);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 500,
+      attribution:
+        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    }).addTo(map);
 
-    //   navigator.geolocation.watchPosition(successPosition, errorPosition)
+    navigator.geolocation.watchPosition(successPosition, errorPosition)
 
-    //   let maker, circle;
-    //     function successPosition(position) {
-    //     const lat = position.coords.latitude;
-    //     const lon = position.coords.longitude;
-    //     const accuracy = position.coords.accuracy;
+    let maker, circle;
+      function successPosition(position) {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      const accuracy = position.coords.accuracy;
 
-    //     maker = L.maker([lat, lon]).addTo(map)
-    //     circle = L.circle([lat, lon], {radius: accuracy}).addTo(map)
+      maker = L.maker([lat, lon]).addTo(map)
+      circle = L.circle([lat, lon], {radius: accuracy}).addTo(map)
 
-    //     map.fitBounds(circle.getBounds())
-    //   }
-      
-    //   function errorPosition(err){
-    //     if(err.code === 1){
-    //         alert("Please allow geolocation access")
-    //     }else{
-    //         alert("Can't get current location")
-    //     }
-    //   }
-    </script>
+      map.fitBounds(circle.getBounds())
+    }
+
+    function errorPosition(err){
+      if(err.code === 1){
+          alert("Please allow geolocation access")
+      }else{
+          alert("Can't get current location")
+      }
+    }
+</script>
